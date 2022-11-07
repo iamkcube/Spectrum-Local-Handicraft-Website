@@ -4,11 +4,11 @@
 Task 2 Submission for Spectrum. Made a local handcraft website to sell products.
 <br>
 <br>
+
 ## Tech Stack
-
-<br>
-
-**Client:** HTML, CSS, Javascript
+```
+HTML, CSS, Javascript
+```
 
 <br>
 

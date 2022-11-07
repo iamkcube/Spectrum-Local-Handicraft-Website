@@ -5,8 +5,8 @@ General Styles
 :root {
     --fade-time: 9s;
     --primary-color: 255, 255, 255;
-    --primary-text-color: #23232c;
-    --accent-color: #813825;
+    --primary-text-color: 35, 35, 44;
+    --accent-color: 129, 56, 37;
     --secondary-text-color: 255, 255, 255;
 }
 
