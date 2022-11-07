@@ -1,40 +1,46 @@
-.heading {
+.heading
+{
     font-family: "Poppins", sans-serif;
     font-size: 2.5rem;
     text-align: center;
     margin: 2rem 0;
 }
 
-.container {
+.container
+{
     display: grid;
     grid-gap: 1.5em;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     place-items: center;
 }
 
-.img-wrapper {
+.img-wrapper
+{
     width: 100%;
     aspect-ratio: 3/4;
     overflow: hidden;
 }
 
-.item img {
+.item img
+{
     width: 100%;
     aspect-ratio: 3/4;
     object-fit: cover;
-    opacity: 0.85;
+    opacity: 0.9;
     transition: 1s ease;
 
 }
 
-.item img:hover {
+.item img:hover
+{
     opacity: 1;
     transition: all 1s ease;
     transform: scale(1.05);
     filter: brightness(100%);
 }
 
-.btn {
+.btn
+{
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -48,13 +54,15 @@
     cursor: pointer;
 }
 
-.btn p {
+.btn p
+{
     font-weight: 400;
     font-size: 1rem;
     opacity: 90%;
 }
 
-.btn b {
+.btn b
+{
     font-size: 0.75rem;
     font-weight: 600;
 }
