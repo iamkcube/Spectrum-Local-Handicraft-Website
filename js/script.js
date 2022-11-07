@@ -2,46 +2,48 @@ console.clear();
 
 console.log("Hemlo");
 const formatter = Intl.NumberFormat("en", {
-  notation: "compact",
-  style: "currency",
-  currency: "INR",
+	notation: "compact",
+	style: "currency",
+	currency: "INR",
 });
 
 let cards = document.querySelector(".container");
 // console.log(cards);
 
-async function getData() {
-  // let prods = await fetch("assets/products.json");
-  let prods = await fetch(
-    "https://dummyjson.com/products/category/womens-jewellery"
-  );
-  // let prods = await fetch("https://dummyjson.com/products/category/furniture");
-  let data = await prods.json();
-  return data;
+async function getData()
+{
+	// let prods = await fetch("assets/products.json");
+	let prods = await fetch(
+		"https://dummyjson.com/products/category/womens-jewellery"
+	);
+	// let prods = await fetch("https://dummyjson.com/products/category/furniture");
+	let data = await prods.json();
+	return data;
 }
 
-async function main() {
-  let prodData = await getData();
-  // console.log(prodData);
-  // console.log(prodData.products);
+async function main()
+{
+	let prodData = await getData();
+	// console.log(prodData);
+	// console.log(prodData.products);
 
-  for (const prod of prodData.products) {
-    // console.log(prod)
-    cards.innerHTML += `
+	for (const prod of prodData.products)
+	{
+		// console.log(prod)
+		cards.innerHTML += `
         <div class="item">
-				<div class="img-wrapper"><img src="${
-          prod.thumbnail
-        }" alt="Failed to load image" /></div>
+				<div class="img-wrapper"><img src="${ prod.thumbnail
+			}" alt="Failed to load image" /></div>
 				<div class="btn">
-					<p>${prod.title.toUpperCase()}</p>
-					<b>Price - ${formatter.format(prod.price)}/-</b>
+					<p>${ prod.title.toUpperCase() }</p>
+					<b>Price - ${ formatter.format(prod.price) }/-</b>
 				</div>
 			</div>
         `;
-  }
+	}
 }
 
-main();
+// main();
 
 // <div class="featured-card">
 //   <div class="featured-card-image-wrapper">
