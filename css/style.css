@@ -121,11 +121,12 @@ Background Image Animation
     border: 2px solid rgba(var(--primary-color), 0.5);
     cursor: pointer;
     transition: all 100ms linear;
+    z-index: 10;
     animation: text-changer var(--fade-time) ease-in-out calc(var(--order)*125ms) infinite alternate;
 
 }
 
-.bg__shop_button:hover {
+.bg__shop_button:hover ~ .bg__shop_button {
     background-color: rgba(var(--primary-color), 0.75);
     color: rgba(var(--primary-text-color));
 }
@@ -303,7 +304,7 @@ main {
 
 .featured__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
     gap: 2em;
 }
 .featured-card
@@ -313,13 +314,25 @@ main {
     align-items: center;
     gap: 0.5em;
 }
+.featured-card-image-wrapper
+{
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+}
 .featured-card-image {
-    background-image: url("https://akkaara.co.in/wp-content/uploads/2019/11/21-1-433x516.jpg");
+    /* background-image: url("https://akkaara.co.in/wp-content/uploads/2019/11/21-1-433x516.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     width: 100%;
     aspect-ratio: 3/4;
+    transition: transform 400ms ease-in-out, filter 200ms ease-in-out;
+}
+.featured-card-image:hover
+{
+    transform: scale(1.15);
+    filter: brightness(90%) contrast(1.1);
 }
 .featured-card-name
 {
