@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=block');
+
 /* 
 General Styles
 -----------------
@@ -11,7 +13,9 @@ General Styles
     --secondary-text-color: 255, 255, 255;
 }
 
-*
+*,
+*::after,
+*::before
 {
     margin: 0;
     padding: 0;
@@ -164,7 +168,8 @@ Background Image Animation
 
 }
 
-.bg__shop_button:hover
+.bg__shop_button:hover,
+.bg__shop_button:focus
 {
     background-color: rgba(var(--primary-color), 0.75);
     color: rgba(var(--primary-text-color));
@@ -206,29 +211,33 @@ Navbar Styles
 
 .navbar
 {
-    --accent-color: transparent;
-    /* position: fixed; */
+    --nav-bg-color: var(--primary-text-color) , 0.9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(var(--accent-color));
-    padding: 2em;
-    box-shadow: 0 0 0 100vw rgba(var(--accent-color));
-    clip-path: inset(0 -100vmax);
-    transition: all 300ms ease-in-out;
+    background-color: rgba(var(--nav-bg-color));
+    padding: 2em 4em;
+    /* box-shadow: 0 0 0 100vw rgba(var(--nav-bg-color)); */
+    /* clip-path: inset(0 -100vmax); */
+    z-index: 2;
+    transition: background-color 300ms ease-in-out;
 }
 
-.navbar:hover
+/* .navbar:hover
 {
-    --accent-color: var(--primary-color), 0.75;
+    --accent-color: var(--primary-color), 0.5;
     --secondary-text-color: var(--primary-text-color);
-}
+} */
 
-.navbar:hover>.icon-items,
+/* .navbar:hover>.icon-items,
 .navbar:hover>.main-logo
 {
     filter: invert();
-}
+} */
 
 .nav-items,
 .icon-items
@@ -261,17 +270,26 @@ Navbar Styles
     content: "";
     position: absolute;
     bottom: 0;
-    background-color: rgba(var(--primary-text-color));
-    height: 2px;
-    width: 0%;
-    transition: width 300ms ease-in-out;
-}
-
-.nav-item:hover::before
-{
+    background-color: rgba(var(--secondary-text-color));
+    height: 1.5px;
+    transform: scaleX(0);
+    transform-origin: right;
     width: 100%;
+    transition: transform 300ms ease-in-out;
+}
+:focus
+{
+    outline: none;
 }
 
+.nav-item:hover::before,
+.nav-item:focus-within::before
+{
+    /* width: 100%; */
+    outline: none;
+    transform: scaleX(1);
+    transform-origin: left;
+}
 .main-logo
 {
     position: absolute;
@@ -286,13 +304,14 @@ Navbar Styles
 .icon-item,
 .main-logo
 {
+    opacity: 70%;
     transition: opacity 100ms ease-in-out;
 }
 
 .icon-item:hover,
 .main-logo:hover
 {
-    opacity: 70%;
+    opacity: 100%;
 }
 
 
@@ -305,7 +324,7 @@ Main Text
 
 main
 {
-    margin-top: 100vh;
+    margin-top: calc(100vh + 6em);
 }
 
 .quote
@@ -345,7 +364,8 @@ main
     transition: all 100ms ease-in-out;
 }
 
-.quote__button:hover
+.quote__button:hover,
+.quote__button:focus
 {
     background-color: rgba(var(--primary-text-color));
     color: rgba(var(--primary-color));
@@ -356,7 +376,8 @@ main
 
 
 .featured__heading,
-.aboutus__heading
+.aboutus__heading,
+.testimonial__heading
 {
     margin: 2em auto 1em auto;
     text-align: center;
@@ -452,7 +473,8 @@ Rotating Cards
     aspect-ratio: 1;
     transition: transform 500ms ease-in-out;
 }
-.rotating-card-wrapper:hover .rotating-card
+.rotating-card-wrapper:hover .rotating-card,
+.rotating-card-wrapper:focus-within .rotating-card
 {
     transform: rotateY(180deg);
 }
@@ -466,7 +488,8 @@ Rotating Cards
     font-size: 1.55rem;
     transition: all 400ms ease-in-out;
 }
-.rotating-card-wrapper:hover .rotating-card-title
+.rotating-card-wrapper:hover .rotating-card-title,
+.rotating-card-wrapper:focus-within .rotating-card-title
 {
     transform: translate(8rem,6rem);
     opacity: 0;
@@ -479,7 +502,8 @@ Rotating Cards
     filter: brightness(80%);
     transition: filter 500ms ease-in-out;
 }
-.rotating-card-wrapper:hover .rotating-card-image
+.rotating-card-wrapper:hover .rotating-card-image,
+.rotating-card-wrapper:focus-within .rotating-card-image
 {
     filter: brightness(40%);
 }
@@ -505,7 +529,8 @@ Rotating Cards
 {
     transform: rotateY(180deg);
 }
-.rotating-card-wrapper:hover .rotating-card-content
+.rotating-card-wrapper:hover .rotating-card-content,
+.rotating-card-wrapper:focus-within .rotating-card-content
 {
     z-index: 1;
     opacity: 1;
@@ -533,10 +558,36 @@ Rotating Cards
     cursor: pointer;
     transition: all 100ms ease-in-out;
 }
-.rotating-card-button:hover
+.rotating-card-button:hover,
+.rotating-card-button:focus-within
 {
     background-color: rgba(var(--primary-color), 0.75);
     color: rgba(var(--primary-text-color));
 }
 
 
+.testimonial__heading
+{
+    margin-bottom: 0.5em;
+}
+
+.footer
+{
+    margin: 4em 0;
+}
+.footer hr
+{
+    opacity: 0.25;
+}
+.footer-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+}
+.footer-socials img
+{
+    width: 2rem;
+    aspect-ratio: 1;
+}

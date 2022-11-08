@@ -60,3 +60,60 @@
     font-size: 0.75rem;
     font-weight: 600;
 }
+
+.testimonial-container{
+    margin: auto;
+    width: 28rem;
+    display: flex;
+    overflow: hidden;
+}
+.slide{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 2rem 2rem 2rem;
+    transition: transform 500ms ease-in-out;
+}
+.slide img
+{
+    width: 24rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.slide p
+{
+    font-size: 0.9rem;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+            line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.slide b
+{
+    font-size: 1.2rem;
+    font-size: 600;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+}
+.nav button{
+    padding: 0em 2.5em;
+    background: transparent;
+    /* border: 2px solid rgba(var(--primary-text-color), 0.5); */
+    opacity: 70%;
+    border: none;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+.nav button:first-child img
+{
+    transform: scale(-1);
+}
+.nav button:hover{
+    opacity: 100%;
+}
