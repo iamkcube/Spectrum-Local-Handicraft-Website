@@ -21,9 +21,9 @@ HTML, CSS, Javascript
 ## Color Reference
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Dark Gunmetal | ![#23232c](https://via.placeholder.com/10/23232c?text=+) #23232c |
-| Burnt Umber | ![#813825](https://via.placeholder.com/10/813825?text=+) #813825 |
-| White | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+| Dark Gunmetal | ![#23232c](./assets/23232c.svg) #23232c |
+| Burnt Umber | ![#813825](./assets/813825.svg) #813825 |
+| White | ![#ffffff](./assets/ffffff.svg) #ffffff |
 
 <br>
 
