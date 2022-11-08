@@ -588,6 +588,12 @@ Rotating Cards
 }
 .footer-socials img
 {
+    cursor: pointer;
     width: 2rem;
     aspect-ratio: 1;
+    opacity: 75%;
+}
+.footer-socials img:hover
+{
+    opacity: 100%;
 }
