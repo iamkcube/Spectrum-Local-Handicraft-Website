@@ -22,6 +22,7 @@ General Styles
     box-sizing: border-box;
     /* outline: 1px solid green; */
 }
+
 html
 {
     scroll-behavior: smooth;
@@ -211,7 +212,7 @@ Navbar Styles
 
 .navbar
 {
-    --nav-bg-color: var(--primary-text-color) , 0.9;
+    --nav-bg-color: var(--primary-text-color), 0.9;
     position: fixed;
     top: 0;
     left: 0;
@@ -259,6 +260,7 @@ Navbar Styles
     position: relative;
     cursor: pointer;
 }
+
 .nav-item a
 {
     text-decoration: none;
@@ -277,6 +279,7 @@ Navbar Styles
     width: 100%;
     transition: transform 300ms ease-in-out;
 }
+
 :focus
 {
     outline: none;
@@ -290,10 +293,25 @@ Navbar Styles
     transform: scaleX(1);
     transform-origin: left;
 }
+
 .main-logo
 {
+    display: flex;
+    gap: 5%;
     position: absolute;
     left: 50%;
+    transform: translate(-50%);
+}
+
+.main-logo>img
+{
+    align-self: center;
+    width: 100%;
+}
+.main-logo>h1
+{
+    font-weight: 600;
+    color: rgba(var(--secondary-text-color));
 }
 
 .icon-item>img
@@ -447,11 +465,11 @@ main
 Rotating Cards
 ------------------
  */
- .rotating-cards
- {
+.rotating-cards
+{
     margin: 3em 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit , minmax(24rem,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
     place-items: center;
     gap: 2em;
 }
@@ -463,6 +481,7 @@ Rotating Cards
     cursor: default;
     user-select: none;
 }
+
 .rotating-card
 {
     position: relative;
@@ -473,14 +492,16 @@ Rotating Cards
     aspect-ratio: 1;
     transition: transform 500ms ease-in-out;
 }
+
 .rotating-card-wrapper:hover .rotating-card,
 .rotating-card-wrapper:focus-within .rotating-card
 {
     transform: rotateY(180deg);
 }
+
 .rotating-card-title
 {
-    transform: translate(0.5em,0.25em);
+    transform: translate(0.5em, 0.25em);
     position: absolute;
     z-index: 2;
     color: rgba(var(--secondary-text-color));
@@ -488,12 +509,14 @@ Rotating Cards
     font-size: 1.55rem;
     transition: all 400ms ease-in-out;
 }
+
 .rotating-card-wrapper:hover .rotating-card-title,
 .rotating-card-wrapper:focus-within .rotating-card-title
 {
-    transform: translate(8rem,6rem);
+    transform: translate(8rem, 6rem);
     opacity: 0;
 }
+
 .rotating-card-image
 {
     width: 100%;
@@ -502,11 +525,13 @@ Rotating Cards
     filter: brightness(80%);
     transition: filter 500ms ease-in-out;
 }
+
 .rotating-card-wrapper:hover .rotating-card-image,
 .rotating-card-wrapper:focus-within .rotating-card-image
 {
     filter: brightness(40%);
 }
+
 .rotating-card-content
 {
     position: absolute;
@@ -525,26 +550,31 @@ Rotating Cards
     opacity: 0;
     transition: z-index 500ms ease-in-out, opacity 500ms ease-in-out;
 }
+
 .rotating-card-content *
 {
     transform: rotateY(180deg);
 }
+
 .rotating-card-wrapper:hover .rotating-card-content,
 .rotating-card-wrapper:focus-within .rotating-card-content
 {
     z-index: 1;
     opacity: 1;
 }
+
 .rotating-card-heading
 {
     font-size: 2rem;
     font-weight: 500;
 }
+
 .rotating-card-text
 {
     font-size: 0.9rem;
     opacity: 0.9;
 }
+
 .rotating-card-button
 {
     background: transparent;
@@ -558,6 +588,7 @@ Rotating Cards
     cursor: pointer;
     transition: all 100ms ease-in-out;
 }
+
 .rotating-card-button:hover,
 .rotating-card-button:focus-within
 {
@@ -575,10 +606,12 @@ Rotating Cards
 {
     margin: 4em 0;
 }
+
 .footer hr
 {
     opacity: 0.25;
 }
+
 .footer-wrapper
 {
     display: flex;
@@ -586,6 +619,7 @@ Rotating Cards
     align-items: center;
     margin: 1em 0;
 }
+
 .footer-socials img
 {
     cursor: pointer;
@@ -593,6 +627,7 @@ Rotating Cards
     aspect-ratio: 1;
     opacity: 75%;
 }
+
 .footer-socials img:hover
 {
     opacity: 100%;

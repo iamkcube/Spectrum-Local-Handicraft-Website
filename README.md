@@ -14,7 +14,8 @@ HTML, CSS, Javascript
 
 ## Logo
 
-![Logo](https://img.icons8.com/ios-glyphs/128/FFFFFF/homeadvisor.png)
+<!-- ![Logo](./assets/logo.png) -->
+<img src="./assets/logo.png" width=240></img>
 
 <br>
 
