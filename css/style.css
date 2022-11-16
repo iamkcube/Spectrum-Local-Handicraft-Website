@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=block');
+
 /* 
 General Styles
 -----------------
  */
-:root {
+:root
+{
     --fade-time: 9s;
     --primary-color: 255, 255, 255;
     --primary-text-color: 35, 35, 44;
@@ -10,14 +13,23 @@ General Styles
     --secondary-text-color: 255, 255, 255;
 }
 
-* {
+*,
+*::after,
+*::before
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* outline: 1px solid green; */
 }
 
-body {
+html
+{
+    scroll-behavior: smooth;
+}
+
+body
+{
     background-color: fff;
     color: rgba(var(--primary-text-color));
     font-family: 'Poppins', sans-serif;
@@ -36,7 +48,8 @@ Background Image Animation
 */
 
 .bg-image,
-.bg-image-back {
+.bg-image-back
+{
     position: absolute;
     top: 0;
     left: 0;
@@ -49,18 +62,21 @@ Background Image Animation
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 100%;
-    /* transition: opacity 500ms linear; */
+    /* transition: opacity 500ms ease-in-out; */
 }
 
-.bg-image {
+.bg-image
+{
     background-image: url("https://akkaara.co.in/wp-content/uploads/2019/01/banner_slider-1.jpg");
     z-index: 0;
-    animation: bg-changer var(--fade-time) linear infinite alternate;
+    animation: bg-changer var(--fade-time) ease-in-out infinite alternate;
 }
 
-.bg-image-back {
+.bg-image-back
+{
     background-image: url("https://akkaara.co.in/wp-content/uploads/2019/01/banner_slidertimeless.jpg");
     z-index: -1;
+    animation: z-index-changer var(--fade-time) ease-in-out infinite alternate;
 }
 
 /* .bg-image:hover
@@ -68,20 +84,44 @@ Background Image Animation
     opacity: 0%;
 } */
 
-@keyframes bg-changer {
+@keyframes z-index-changer
+{
 
     0%,
-    40% {
-        opacity: 100%;
+    40%
+    {
+        z-index: -1;
+        opacity: 50%;
     }
 
     60%,
-    100% {
-        opacity: 0%;
+    100%
+    {
+        z-index: 0;
+        opacity: 100%;
     }
 }
 
-.bg-content {
+@keyframes bg-changer
+{
+
+    0%,
+    40%
+    {
+        opacity: 100%;
+        z-index: 0;
+    }
+
+    60%,
+    100%
+    {
+        opacity: 0%;
+        z-index: -1;
+    }
+}
+
+.bg-content
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,23 +133,26 @@ Background Image Animation
     text-align: center;
     user-select: none;
     translate: 0 0;
-    /* animation: text-changer 15s linear calc(var(--order)*100ms) infinite alternate; */
+    /* animation: text-changer 15s ease-in-out calc(var(--order)*100ms) infinite alternate; */
 }
 
-.bg__heading {
+.bg__heading
+{
     margin: auto;
     animation: text-changer var(--fade-time) ease-in-out calc(var(--order)*125ms) infinite alternate;
 
 }
 
-.bg__subheading {
+.bg__subheading
+{
     font-size: 1rem;
     color: rgba(var(--secondary-text-color), 0.75);
     animation: text-changer var(--fade-time) ease-in-out calc(var(--order)*125ms) infinite alternate;
 
 }
 
-.bg__shop_button {
+.bg__shop_button
+{
     margin: 2rem auto;
     padding: 1.25em 2.5em;
     font-size: 0.9rem;
@@ -120,35 +163,36 @@ Background Image Animation
     color: rgba(var(--secondary-text-color));
     border: 2px solid rgba(var(--primary-color), 0.5);
     cursor: pointer;
-    transition: all 100ms linear;
+    transition: all 100ms ease-in-out;
     z-index: 10;
     animation: text-changer var(--fade-time) ease-in-out calc(var(--order)*125ms) infinite alternate;
 
 }
 
-.bg__shop_button:hover ~ .bg__shop_button {
+.bg__shop_button:hover,
+.bg__shop_button:focus
+{
     background-color: rgba(var(--primary-color), 0.75);
     color: rgba(var(--primary-text-color));
 }
 
-@keyframes text-changer {
+@keyframes text-changer
+{
 
     0%,
-    30% {
+    30%,
+    70%,
+    100%
+    {
         translate: 0 0;
         opacity: 100%;
     }
 
     40%,
-    60% {
+    60%
+    {
         translate: 0 -6rem;
         opacity: 0%;
-    }
-
-    70%,
-    100% {
-        translate: 0 0;
-        opacity: 100%;
     }
 }
 
@@ -166,31 +210,39 @@ Navbar Styles
 ------------------
  */
 
-.navbar {
-    --accent-color: transparent;
-    /* position: fixed; */
+.navbar
+{
+    --nav-bg-color: var(--primary-text-color), 0.9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(var(--accent-color));
-    padding: 2em;
-    box-shadow: 0 0 0 100vw rgba(var(--accent-color));
-    clip-path: inset(0 -100vmax);
-    transition: all 300ms linear;
+    background-color: rgba(var(--nav-bg-color));
+    padding: 2em 4em;
+    /* box-shadow: 0 0 0 100vw rgba(var(--nav-bg-color)); */
+    /* clip-path: inset(0 -100vmax); */
+    z-index: 2;
+    transition: background-color 300ms ease-in-out;
 }
 
-.navbar:hover {
-    --accent-color: var(--primary-color), 0.75;
+/* .navbar:hover
+{
+    --accent-color: var(--primary-color), 0.5;
     --secondary-text-color: var(--primary-text-color);
-}
+} */
 
-.navbar:hover>.icon-items,
-.navbar:hover>.main-logo {
+/* .navbar:hover>.icon-items,
+.navbar:hover>.main-logo
+{
     filter: invert();
-}
+} */
 
 .nav-items,
-.icon-items {
+.icon-items
+{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,42 +255,81 @@ Navbar Styles
 }
 
 .nav-item,
-.icon-item {
+.icon-item
+{
     position: relative;
     cursor: pointer;
 }
 
-.nav-item::before {
+.nav-item a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-item::before
+{
     content: "";
     position: absolute;
     bottom: 0;
-    background-color: rgba(var(--primary-text-color));
-    height: 2px;
-    width: 0%;
-    transition: width 300ms ease-in-out;
-}
-
-.nav-item:hover::before {
+    background-color: rgba(var(--secondary-text-color));
+    height: 1.5px;
+    transform: scaleX(0);
+    transform-origin: right;
     width: 100%;
+    transition: transform 300ms ease-in-out;
 }
 
-.main-logo {
+:focus
+{
+    outline: none;
+}
+
+.nav-item:hover::before,
+.nav-item:focus-within::before
+{
+    /* width: 100%; */
+    outline: none;
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.main-logo
+{
+    display: flex;
+    gap: 5%;
     position: absolute;
     left: 50%;
+    transform: translate(-50%);
 }
 
-.icon-item>img {
+.main-logo>img
+{
+    align-self: center;
+    width: 100%;
+}
+.main-logo>h1
+{
+    font-weight: 600;
+    color: rgba(var(--secondary-text-color));
+}
+
+.icon-item>img
+{
     width: 1.5rem;
 }
 
 .icon-item,
-.main-logo {
-    transition: opacity 100ms linear;
+.main-logo
+{
+    opacity: 70%;
+    transition: opacity 100ms ease-in-out;
 }
 
 .icon-item:hover,
-.main-logo:hover {
-    opacity: 70%;
+.main-logo:hover
+{
+    opacity: 100%;
 }
 
 
@@ -249,11 +340,13 @@ Main Text
 ------------------
  */
 
-main {
-    margin-top: 100vh;
+main
+{
+    margin-top: calc(100vh + 6em);
 }
 
-.quote {
+.quote
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -262,13 +355,15 @@ main {
     color: rgba(var(--primary-text-color));
 }
 
-.quote__heading {
+.quote__heading
+{
     font-weight: 300;
     text-transform: uppercase;
     font-size: 1.25rem;
 }
 
-.quote__subheading {
+.quote__subheading
+{
     width: 40ch;
     text-align: center;
     font-weight: 300;
@@ -276,17 +371,20 @@ main {
     opacity: 60%;
 }
 
-.quote__button {
+.quote__button
+{
     margin: 2rem auto;
     padding: 1.25em 2.5em;
     font-size: 0.9rem;
     background: transparent;
     border: 2px solid rgba(var(--primary-text-color), 0.5);
     cursor: pointer;
-    transition: all 100ms linear;
+    transition: all 100ms ease-in-out;
 }
 
-.quote__button:hover {
+.quote__button:hover,
+.quote__button:focus
+{
     background-color: rgba(var(--primary-text-color));
     color: rgba(var(--primary-color));
 }
@@ -295,18 +393,24 @@ main {
 
 
 
-.featured__heading {
-    margin: 3em auto 1.5em auto;
+.featured__heading,
+.aboutus__heading,
+.testimonial__heading
+{
+    margin: 2em auto 1em auto;
     text-align: center;
     font-size: 3rem;
-
+    cursor: default;
+    user-select: none;
 }
 
-.featured__cards {
+.featured__cards
+{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2em;
 }
+
 .featured-card
 {
     display: flex;
@@ -314,13 +418,16 @@ main {
     align-items: center;
     gap: 0.5em;
 }
+
 .featured-card-image-wrapper
 {
     width: 100%;
     aspect-ratio: 3/4;
     overflow: hidden;
 }
-.featured-card-image {
+
+.featured-card-image
+{
     /* background-image: url("https://akkaara.co.in/wp-content/uploads/2019/11/21-1-433x516.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
@@ -329,17 +436,199 @@ main {
     aspect-ratio: 3/4;
     transition: transform 400ms ease-in-out, filter 200ms ease-in-out;
 }
+
 .featured-card-image:hover
 {
     transform: scale(1.15);
     filter: brightness(90%) contrast(1.1);
 }
+
 .featured-card-name
 {
     margin-top: 1em;
     font-size: 1rem;
 }
+
 .featured-card-price
 {
     font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+/* 
+Rotating Cards
+------------------
+ */
+.rotating-cards
+{
+    margin: 3em 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    place-items: center;
+    gap: 2em;
+}
+
+.rotating-card-wrapper
+{
+    width: 100%;
+    aspect-ratio: 1;
+    cursor: default;
+    user-select: none;
+}
+
+.rotating-card
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1;
+    transition: transform 500ms ease-in-out;
+}
+
+.rotating-card-wrapper:hover .rotating-card,
+.rotating-card-wrapper:focus-within .rotating-card
+{
+    transform: rotateY(180deg);
+}
+
+.rotating-card-title
+{
+    transform: translate(0.5em, 0.25em);
+    position: absolute;
+    z-index: 2;
+    color: rgba(var(--secondary-text-color));
+    font-weight: 600;
+    font-size: 1.55rem;
+    transition: all 400ms ease-in-out;
+}
+
+.rotating-card-wrapper:hover .rotating-card-title,
+.rotating-card-wrapper:focus-within .rotating-card-title
+{
+    transform: translate(8rem, 6rem);
+    opacity: 0;
+}
+
+.rotating-card-image
+{
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    filter: brightness(80%);
+    transition: filter 500ms ease-in-out;
+}
+
+.rotating-card-wrapper:hover .rotating-card-image,
+.rotating-card-wrapper:focus-within .rotating-card-image
+{
+    filter: brightness(40%);
+}
+
+.rotating-card-content
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+    z-index: -1;
+    color: rgba(var(--secondary-text-color));
+    opacity: 0;
+    transition: z-index 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+.rotating-card-content *
+{
+    transform: rotateY(180deg);
+}
+
+.rotating-card-wrapper:hover .rotating-card-content,
+.rotating-card-wrapper:focus-within .rotating-card-content
+{
+    z-index: 1;
+    opacity: 1;
+}
+
+.rotating-card-heading
+{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.rotating-card-text
+{
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.rotating-card-button
+{
+    background: transparent;
+    color: rgba(var(--secondary-text-color));
+    padding: 1.25em 3em;
+    width: max-content;
+    border: 2px solid rgba(var(--secondary-text-color), 0.75);
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    letter-spacing: 0.3ch;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+
+.rotating-card-button:hover,
+.rotating-card-button:focus-within
+{
+    background-color: rgba(var(--primary-color), 0.75);
+    color: rgba(var(--primary-text-color));
+}
+
+
+.testimonial__heading
+{
+    margin-bottom: 0.5em;
+}
+
+.footer
+{
+    margin: 4em 0;
+}
+
+.footer hr
+{
+    opacity: 0.25;
+}
+
+.footer-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.footer-socials img
+{
+    cursor: pointer;
+    width: 2rem;
+    aspect-ratio: 1;
+    opacity: 75%;
+}
+
+.footer-socials img:hover
+{
+    opacity: 100%;
 }
