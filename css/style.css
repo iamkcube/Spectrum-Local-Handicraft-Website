@@ -67,6 +67,7 @@ Background Image Animation
 
 .bg-image
 {
+    background-color: rgba(var(--primary-text-color));
     background-image: url("https://akkaara.co.in/wp-content/uploads/2019/01/banner_slider-1.jpg");
     z-index: 0;
     animation: bg-changer var(--fade-time) ease-in-out infinite alternate;
@@ -74,6 +75,7 @@ Background Image Animation
 
 .bg-image-back
 {
+    background-color: rgba(var(--accent-color));
     background-image: url("https://akkaara.co.in/wp-content/uploads/2019/01/banner_slidertimeless.jpg");
     z-index: -1;
     animation: z-index-changer var(--fade-time) ease-in-out infinite alternate;
