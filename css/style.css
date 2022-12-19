@@ -173,7 +173,7 @@ Background Image Animation
 }
 
 .bg__shop_button:hover,
-.bg__shop_button:focus
+.bg__shop_button:focus-visible
 {
     background-color: rgba(var(--primary-color), 0.75);
     color: rgba(var(--primary-text-color));
@@ -227,7 +227,7 @@ Navbar Styles
     padding: 2em 4em;
     /* box-shadow: 0 0 0 100vw rgba(var(--nav-bg-color)); */
     /* clip-path: inset(0 -100vmax); */
-    z-index: 2;
+    z-index: 3;
     transition: background-color 300ms ease-in-out;
 }
 
@@ -387,7 +387,7 @@ main
 }
 
 .quote__button:hover,
-.quote__button:focus
+.quote__button:focus-visible
 {
     background-color: rgba(var(--primary-text-color));
     color: rgba(var(--primary-color));
