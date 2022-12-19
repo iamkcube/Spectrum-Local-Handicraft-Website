@@ -59,23 +59,45 @@ async function main() {
 const navbar = document.querySelector(".navbar");
 const bgImage = document.querySelector(".bg-image");
 
-
 const bgObserverOptions = {
-	rootMargin: "-200px 0px 0px 0px"
+	rootMargin: "-200px 0px 0px 0px",
 };
-const bgObserver = new IntersectionObserver((entries) => 
-{
-	entries.forEach((entry) => 
-	{
-		if (!entry.isIntersecting) 
-		{
-			navbar.style.setProperty("--nav-bg-color", "var(--primary-text-color) , 0.9");
-		}
-		else
-		{
+const bgObserver = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		if (!entry.isIntersecting) {
+			navbar.style.setProperty(
+				"--nav-bg-color",
+				"var(--primary-text-color) , 0.9"
+			);
+		} else {
 			navbar.style.setProperty("--nav-bg-color", "transparent");
 		}
 	});
 }, bgObserverOptions);
 
 bgObserver.observe(bgImage);
+
+const modal = document.querySelector(".modal");
+const modalImages = document.querySelectorAll(".modal-images > img");
+const modalPrice = document.querySelector(".modal-price");
+const items = document.querySelectorAll(".item");
+const buyButton = document.querySelector(".modal-buy-button");
+const closeModal = document.querySelector(".close-modal");
+
+for (const item of items) {
+	item.addEventListener("click", () => {
+		let itemImageSrc = item.querySelector(".img-wrapper > img").src;
+		let itemPrice = item.querySelector(".btn > b").textContent;
+		for (const modalImage of modalImages) {
+			modalImage.src = itemImageSrc;
+			modalPrice.textContent = itemPrice;
+		}
+		modal.showModal();
+	});
+}
+
+[closeModal, buyButton].forEach((element) =>
+	element.addEventListener("click", () => {
+		modal.close();
+	})
+);
